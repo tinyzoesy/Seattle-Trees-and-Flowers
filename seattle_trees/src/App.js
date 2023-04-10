@@ -3,6 +3,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
 mapboxgl.accessToken = 'pk.eyJ1IjoidmVyYXpvdSIsImEiOiJjbGdhMDkyZHMwOThiM2RwZ256bWR0dm9hIn0.f-631-O5UNmKOOF1svxxzQ';
+// mapboxgl.accessToken = 'sk.eyJ1IjoidmVyYXpvdSIsImEiOiJjbGdhYzlrdzAwZmt3M3JxaTduc2ZwZjVxIn0.-AFSvCZuoSl1s5_HgZhWhA';
 
 
 export default function App() {
@@ -19,8 +20,28 @@ export default function App() {
 			container: mapContainer.current,
 			style: 'mapbox://styles/mapbox/streets-v12',
 			center: [lng, lat],
-			zoom: zoom
+			zoom: zoom,
+			maxBounds: [[-124.763068, 45.543541],[-116.915989, 49.002494]],
 	    });
+
+	    map.current.on('load', () => {
+	    	map.current.addSource('trees-source', {
+		      type: 'vector',
+		      url: 'mapbox://verazou.seattletrees', 
+	    	});
+
+		    map.current.addLayer(
+		      {
+		        id: 'trees',
+		        type: 'circle',
+		        source: 'trees-source',
+		        'source-layer': 'trees',
+		        layout: {
+		        },
+		      },
+		    );
+	    });
+
 	  });
 
 	// Store new coordinates
@@ -32,6 +53,8 @@ export default function App() {
 			setZoom(map.current.getZoom().toFixed(2));
 		});
 	});
+
+
 
 	return (
 		<div>
