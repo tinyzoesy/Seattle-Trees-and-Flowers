@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import Filters from './Filters';
 
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
@@ -18,31 +19,20 @@ export default function App() {
 	    if (map.current) return; // initialize map only once
 	    map.current = new mapboxgl.Map({
 			container: mapContainer.current,
-			style: 'mapbox://styles/mapbox/streets-v12',
+			style: 'mapbox://styles/verazou/clgbrzklm000s01o1d75l8rhh',
 			center: [lng, lat],
 			zoom: zoom,
-			maxBounds: [[-124.763068, 45.543541],[-116.915989, 49.002494]],
+			maxBounds: [[-124.763068, 45.543541],[-116.915989, 48.946000]],
 	    });
 
-	    map.current.on('load', () => {
-	    	map.current.addSource('trees-source', {
-		      type: 'vector',
-		      url: 'mapbox://verazou.seattletrees', 
-	    	});
+	    // map.current.on('load', () => {
+	    // 	map.current.addSource('trees-source', {
+		//       type: 'vector',
+		//       url: 'mapbox://verazou.seattletrees', 
+	    // 	});
+	    // });
 
-		    map.current.addLayer(
-		      {
-		        id: 'trees',
-		        type: 'circle',
-		        source: 'trees-source',
-		        'source-layer': 'trees',
-		        layout: {
-		        },
-		      },
-		    );
-	    });
-
-	  });
+	  }, []);
 
 	// Store new coordinates
 	useEffect(() => {
@@ -52,6 +42,10 @@ export default function App() {
 			setLat(map.current.getCenter().lat.toFixed(4));
 			setZoom(map.current.getZoom().toFixed(2));
 		});
+		map.current.on('style.load', () => {
+			map.current.removeLayer("silktree");
+		});
+		console.log(map.current.queryRenderedFeatures());
 	});
 
 
@@ -61,6 +55,7 @@ export default function App() {
 			<div className="sidebar">
 				Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
 			</div>
+			<Filters className="filter-wrapper" map={map}/>
 			<div ref={mapContainer} className="map-container" />
 		</div>
 	);

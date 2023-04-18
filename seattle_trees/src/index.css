@@ -1,3 +1,39 @@
 .map-container {
   height: 800px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.flower-icon {
+  background: url("flower_icon.png") no-repeat;
+}
+
+.filter-wrapper {
+  position: absolute;
+  start: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.sidebar {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+}
+
+.filter-container {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  z-index: 2;
+
+  background-color: #7ea86c;
+  height: 100px;
+  padding: 12px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
