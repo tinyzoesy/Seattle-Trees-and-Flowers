@@ -1,14 +1,27 @@
 {
   "files": {
-    "main.css": "/Seattle-Trees-and-Flowers/static/css/main.cc3c0e8b.css",
-    "main.js": "/Seattle-Trees-and-Flowers/static/js/main.c5a49cb1.js",
+    "main.css": "/Seattle-Trees-and-Flowers/static/css/main.42ec2472.css",
+    "main.js": "/Seattle-Trees-and-Flowers/static/js/main.f20b61b8.js",
+    "static/media/dogwood.svg": "/Seattle-Trees-and-Flowers/static/media/dogwood.72b8641b76f3682b71af0d7301d9d6a3.svg",
+    "static/media/lilac.svg": "/Seattle-Trees-and-Flowers/static/media/lilac.859abd178f7d3e938aae9513f6ea6c24.svg",
+    "static/media/peach.svg": "/Seattle-Trees-and-Flowers/static/media/peach.f14003fe23caab1c3c9c65a5c4e712b4.svg",
+    "static/media/almond.svg": "/Seattle-Trees-and-Flowers/static/media/almond.faede7d6d3ceeeb5f510f321689a6620.svg",
     "static/media/flower_icon.png": "/Seattle-Trees-and-Flowers/static/media/flower_icon.0be8be37d7eaf0aaa8c8.png",
+    "static/media/magnolia.svg": "/Seattle-Trees-and-Flowers/static/media/magnolia.38186848cb895f66fdf5ab5b7e841912.svg",
+    "static/media/plum.svg": "/Seattle-Trees-and-Flowers/static/media/plum.62b77ff43c59b40f70fd2bbcff4be6e7.svg",
+    "static/media/snowbell.svg": "/Seattle-Trees-and-Flowers/static/media/snowbell.9ae73cd2b605aaaa52b7daa1459bcab9.svg",
+    "static/media/crapemyrtle.svg": "/Seattle-Trees-and-Flowers/static/media/crapemyrtle.8c652c67c0a0a48c354750a16e5168da.svg",
+    "static/media/crabapple.svg": "/Seattle-Trees-and-Flowers/static/media/crabapple.52b8fbf06a2bae2de409d2d51baa91cc.svg",
+    "static/media/camellia.svg": "/Seattle-Trees-and-Flowers/static/media/camellia.1f492781df03ebb356685a9dc91c39d9.svg",
+    "static/media/pear.svg": "/Seattle-Trees-and-Flowers/static/media/pear.ab47c678c72db0b503c73eda4068b13e.svg",
+    "static/media/sakura.svg": "/Seattle-Trees-and-Flowers/static/media/sakura.c0a7a1bc882e017f917d3a98d18532f5.svg",
+    "static/media/apricot.svg": "/Seattle-Trees-and-Flowers/static/media/apricot.cc93de9c6ca0ef6294e18cde983cd7bc.svg",
     "index.html": "/Seattle-Trees-and-Flowers/index.html",
-    "main.cc3c0e8b.css.map": "/Seattle-Trees-and-Flowers/static/css/main.cc3c0e8b.css.map",
-    "main.c5a49cb1.js.map": "/Seattle-Trees-and-Flowers/static/js/main.c5a49cb1.js.map"
+    "main.42ec2472.css.map": "/Seattle-Trees-and-Flowers/static/css/main.42ec2472.css.map",
+    "main.f20b61b8.js.map": "/Seattle-Trees-and-Flowers/static/js/main.f20b61b8.js.map"
   },
   "entrypoints": [
-    "static/css/main.cc3c0e8b.css",
-    "static/js/main.c5a49cb1.js"
+    "static/css/main.42ec2472.css",
+    "static/js/main.f20b61b8.js"
   ]
 }
