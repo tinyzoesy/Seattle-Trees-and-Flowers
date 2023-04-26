@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Seattle-Trees-and-Flowers/static/css/main.42ec2472.css",
-    "main.js": "/Seattle-Trees-and-Flowers/static/js/main.f20b61b8.js",
+    "main.css": "/Seattle-Trees-and-Flowers/static/css/main.33f956c0.css",
+    "main.js": "/Seattle-Trees-and-Flowers/static/js/main.f699663b.js",
     "static/media/dogwood.svg": "/Seattle-Trees-and-Flowers/static/media/dogwood.72b8641b76f3682b71af0d7301d9d6a3.svg",
     "static/media/lilac.svg": "/Seattle-Trees-and-Flowers/static/media/lilac.859abd178f7d3e938aae9513f6ea6c24.svg",
     "static/media/peach.svg": "/Seattle-Trees-and-Flowers/static/media/peach.f14003fe23caab1c3c9c65a5c4e712b4.svg",
@@ -17,11 +17,11 @@
     "static/media/sakura.svg": "/Seattle-Trees-and-Flowers/static/media/sakura.c0a7a1bc882e017f917d3a98d18532f5.svg",
     "static/media/apricot.svg": "/Seattle-Trees-and-Flowers/static/media/apricot.cc93de9c6ca0ef6294e18cde983cd7bc.svg",
     "index.html": "/Seattle-Trees-and-Flowers/index.html",
-    "main.42ec2472.css.map": "/Seattle-Trees-and-Flowers/static/css/main.42ec2472.css.map",
-    "main.f20b61b8.js.map": "/Seattle-Trees-and-Flowers/static/js/main.f20b61b8.js.map"
+    "main.33f956c0.css.map": "/Seattle-Trees-and-Flowers/static/css/main.33f956c0.css.map",
+    "main.f699663b.js.map": "/Seattle-Trees-and-Flowers/static/js/main.f699663b.js.map"
   },
   "entrypoints": [
-    "static/css/main.42ec2472.css",
-    "static/js/main.f20b61b8.js"
+    "static/css/main.33f956c0.css",
+    "static/js/main.f699663b.js"
   ]
 }
