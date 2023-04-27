@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import Filters from './Filters';
+import {layers} from "./Labels";
 
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
@@ -13,26 +14,45 @@ export default function App() {
 	const [lng, setLng] = useState(-122.33);
 	const [lat, setLat] = useState(47.61);
 	const [zoom, setZoom] = useState(9);
+	const [selectedFlower, setSelectedFlower] = useState("seattle-plum");
 
 	// Initialize
 	useEffect(() => {
-	    if (map.current) return; // initialize map only once
-	    map.current = new mapboxgl.Map({
-			container: mapContainer.current,
-			style: 'mapbox://styles/verazou/clgbrzklm000s01o1d75l8rhh',
-			center: [lng, lat],
-			zoom: zoom,
-			maxBounds: [[-124.763068, 45.543541],[-116.915989, 48.946000]],
-	    });
+		console.log("useEffected", selectedFlower);
+	    if (!map.current) {
+		    map.current = new mapboxgl.Map({
+				container: mapContainer.current,
+				style: 'mapbox://styles/verazou/clgx862e7004901r663j98270',
+				center: [lng, lat],
+				zoom: zoom,
+				maxBounds: [[-124.763068, 45.543541],[-116.915989, 48.946000]],
+		    });
+		}
 
 	    // map.current.on('load', () => {
-	    // 	map.current.addSource('trees-source', {
+	    //     map.current.addSource('flower-source', {
 		//       type: 'vector',
-		//       url: 'mapbox://verazou.seattletrees', 
+		//       url: 'mapbox://verazou.seattleflowerswithicons', 
+		//       cluster: true,
+		//       clusterMaxZoom: 14,
+		//       clusterRadius: 100
+		//     });
+
+		//     map.current.addLayer({
+		//       id: 'clusters',
+		//       type: 'circle',
+		//       source: 'flower-source',
+		//       'source-layer': 'flowers',
+		//       filter: ['has', 'point_count'],
+		//       paint: {
+		//         'circle-color': '#51bbd6',
+		//         'circle-radius': 2,
+		//         'circle-translate': [-15, -15],
+		//       },
 	    // 	});
 	    // });
 
-	  }, []);
+	  });
 
 	// Store new coordinates
 	useEffect(() => {
@@ -42,20 +62,36 @@ export default function App() {
 			setLat(map.current.getCenter().lat.toFixed(4));
 			setZoom(map.current.getZoom().toFixed(2));
 		});
-		map.current.on('style.load', () => {
-			map.current.removeLayer("silktree");
-		});
-		console.log(map.current.queryRenderedFeatures());
 	});
 
+	useEffect(() => {
+    	map.current.on('idle', () => {
+	    	console.log("idle");
+			if (!map.current) return; // wait for map to initialize
+		    for (let layer of layers) {
+				if (layer.id !== selectedFlower) {
+		    		map.current.setLayoutProperty(layer.id, 'visibility', 'none');
+		    	} else {
+		    		map.current.setLayoutProperty(layer.id, 'visibility', 'visible');
+	    		}
+	    	}
+	    });
+	}, [selectedFlower]);
 
+	const onFilterChange = (event, id) => {
+		console.log(id);
+		setSelectedFlower(id)
+	};
+
+	const info = <div className="sidebar">
+				Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
+			</div>;
 
 	return (
 		<div>
-			<div className="sidebar">
-				Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
+			<div>
+				<Filters map={map} onChange={onFilterChange}/>
 			</div>
-			<Filters className="filter-wrapper" map={map}/>
 			<div ref={mapContainer} className="map-container" />
 		</div>
 	);
